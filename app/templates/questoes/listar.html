@@ -1,0 +1,36 @@
+<h1>
+	Aqui lista questões
+</h1>
+
+{{questoes}}
+
+{% if questoes %}
+
+{% for i in classificacao %}
+<li>{{i.id}}</li>
+{% endfor %}
+
+<ul>
+
+{% for q in questoes %}
+
+<li> {{q.enunciado}} </li>
+<input type="radio" name="{{q.id}}" value="A"> {{q.itemA}}
+<input type="radio" name="{{q.id}}" value="B"> {{q.itemB}}
+<input type="radio" name="{{q.id}}" value="C"> {{q.itemC}}
+<input type="radio" name="{{q.id}}" value="D"> {{q.itemD}}
+<input type="radio" name="{{q.id}}" value="E"> {{q.itemE}}
+<br>
+User: {{ user.get_username }}
+<br>
+ID: {{ q.id}}
+
+
+{% endfor %}
+</ul>
+
+{% else %}
+
+<h2>Não há questões para esta categoria.</h2>
+
+{% endif %}
